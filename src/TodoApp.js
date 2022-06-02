@@ -21,13 +21,13 @@ export default function TodoApp() {
   }
 
   return (
-    <>
+    <div className="container">
       <TodoForm
         name={name}
         onNameChange={handleNameChange}
         onFormSubmit={handleFormSubmit}
       />
       <TodoList todos={todos} onDeleteClick={handleDeleteCLick} />
-    </>
+    </div>
   );
 }
