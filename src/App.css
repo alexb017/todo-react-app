@@ -2,37 +2,76 @@
   width: 640px;
   margin: 0 auto;
 }
+.content {
+  margin-top: 100px;
+}
 
+.form-content {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+}
 .form {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  margin-bottom: 10px;
 }
 .label {
   margin-bottom: 10px;
 }
+.input-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
 .input {
-  padding: 24px;
+  color: #808080;
+}
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select {
+  padding: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
-  caret-color: #808080;
+  background-color: transparent;
+  color: #808080;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.btn-submit {
+  padding: 6px 12px;
+  background-color: #66bb6a;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-submit:disabled {
+  background-color: #bdbdbd;
+  cursor: default;
 }
 
-.content {
+.list-content {
+  margin-top: 10px;
+}
+.todos-list {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 .todo-li {
-  padding: 24px;
+  padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.todo-li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .todo-li:last-child {
   border-bottom: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .todo-li-content {
   display: flex;
@@ -43,7 +82,9 @@
   display: inline-flex;
   cursor: pointer;
   color: #808080;
+  width: 20px;
+  padding-left: 20px;
 }
 .btn-delete:hover {
-  color: red;
+  color: #ef5350;
 }
