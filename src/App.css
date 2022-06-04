@@ -3,14 +3,14 @@
   margin: 0 auto;
 }
 .content {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .form-content {
   padding: 20px;
   border-radius: 8px;
   background-color: white;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 .form {
   display: flex;
@@ -38,18 +38,25 @@
   color: #808080;
   border-radius: 4px;
   font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.select:disabled {
+  border-color: #eceff1;
+  color: #bdbdbd;
 }
 .btn-submit {
   padding: 6px 12px;
-  background-color: #66bb6a;
+  background-color: #7c4dff;
   color: white;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 .btn-submit:disabled {
-  background-color: #bdbdbd;
+  background-color: #eceff1;
   cursor: default;
+  color: #bdbdbd;
 }
 
 .list-content {
@@ -57,7 +64,7 @@
 }
 .todos-list {
   background-color: white;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
 .todo-li {
@@ -77,6 +84,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.p-name svg {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 22px;
+  height: 22px;
+  margin-right: 3px;
+}
+.p-category {
+  font-size: 14px;
+  color: #808080;
+}
+.p-category svg {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 17px;
+  height: 17px;
+  margin-right: 3px;
 }
 .btn-delete {
   display: inline-flex;

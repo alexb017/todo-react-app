@@ -6,13 +6,21 @@ export default function TodoForm(props) {
         rows="2"
         className="input"
         placeholder="Task name here..."
+        spellCheck="false"
         value={props.name}
         onChange={props.onNameChange}
+        onKeyDown={props.onEnterPress}
       />
       <div className="form-options">
-        <select className="select">
+        <select
+          className="select"
+          disabled={props.btnDisabled}
+          onChange={props.onCategoryChange}
+        >
           <option value="">Category</option>
-          <option value="work">Work</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Hobby">Hobby</option>
         </select>
         <button
           type="submit"
