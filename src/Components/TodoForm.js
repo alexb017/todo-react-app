@@ -2,6 +2,7 @@ import Input from './Input.js';
 import Button from './Button.js';
 
 export default function TodoForm(props) {
+  console.log(props);
   return (
     <>
       <form onSubmit={props.onSubmitForm}>

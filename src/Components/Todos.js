@@ -2,24 +2,11 @@ import { useEffect, useState } from 'react';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
 
-export default function Todos() {
-  const [todos, setTodos] = useState(() => {
-    let saveTodos = [];
-    try {
-      saveTodos = JSON.parse(localStorage.getItem('todos')) || [];
-    } catch (error) {
-      saveTodos = [];
-    }
-    return saveTodos;
-  });
+export default function Todos(props) {
+  const [id, setId] = useState('');
   const [entry, setEntry] = useState('');
-
-  useEffect(() => {
-    console.log(todos);
-    if (todos) {
-      localStorage.setItem('todos', JSON.stringify(todos));
-    }
-  }, [todos]);
+  const [important, setImportant] = useState(false);
+  console.log(props);
 
   function handleEntryChange(event) {
     console.log(event.target.value);
@@ -28,7 +15,8 @@ export default function Todos() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    setTodos([...todos, { entry }]);
+    props.onTodoAdd({ id: id + 1, entry, important });
+    //setTodos([...todos, { entry }]);
     setEntry('');
   }
 
@@ -46,6 +34,7 @@ export default function Todos() {
         <p className="task-date">Monday, January 16</p>
         <div className="todo-input">
           <TodoForm
+            todos={props.todos}
             entry={entry}
             onEntryChange={handleEntryChange}
             onFormSubmit={handleFormSubmit}
@@ -53,7 +42,7 @@ export default function Todos() {
           />
         </div>
         <div className="todos-grid">
-          {todos.map((todo, index) => {
+          {props.todos.map((todo, index) => {
             return <Todo key={index} details={todo} />;
           })}
         </div>

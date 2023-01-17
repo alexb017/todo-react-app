@@ -127,3 +127,8 @@
   display: flex;
   align-items: center;
 }
+
+/* Important */
+.important-content {
+  padding: 20px 10px;
+}

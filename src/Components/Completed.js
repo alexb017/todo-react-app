@@ -1,8 +1,9 @@
-export default function Completed() {
+export default function Completed({ todos }) {
   return (
     <>
       <div className="completed-content">
-        <h2>Completed x task/s</h2>
+        <h2>Completed tasks</h2>
+        {todos.length === 0 && <p>You have not completed any task.</p>}
       </div>
     </>
   );
