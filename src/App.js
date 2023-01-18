@@ -28,6 +28,11 @@ function App() {
     setTodos([...todos, { ...newTodo }]);
   }
 
+  function handleTodoDelete(id) {
+    const updateTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updateTodos);
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -37,7 +42,13 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<Todos todos={todos} onTodoAdd={handleTodoAdd} />}
+                element={
+                  <Todos
+                    todos={todos}
+                    onTodoAdd={handleTodoAdd}
+                    onTodoDelete={handleTodoDelete}
+                  />
+                }
               ></Route>
               <Route
                 path="/completed"

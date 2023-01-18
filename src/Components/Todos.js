@@ -3,9 +3,10 @@ import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
 
 export default function Todos(props) {
-  const [id, setId] = useState('');
   const [entry, setEntry] = useState('');
-  const [important, setImportant] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [date, setDate] = useState('');
+
   console.log(props);
 
   function handleEntryChange(event) {
@@ -15,8 +16,7 @@ export default function Todos(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    props.onTodoAdd({ id: id + 1, entry, important });
-    //setTodos([...todos, { entry }]);
+    props.onTodoAdd({ id: props.todos.length + 1, entry, isCompleted });
     setEntry('');
   }
 
@@ -43,7 +43,13 @@ export default function Todos(props) {
         </div>
         <div className="todos-grid">
           {props.todos.map((todo, index) => {
-            return <Todo key={index} details={todo} />;
+            return (
+              <Todo
+                key={index}
+                details={todo}
+                onTodoDelete={props.onTodoDelete}
+              />
+            );
           })}
         </div>
       </div>

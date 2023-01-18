@@ -1,5 +1,5 @@
 export default function Input(props) {
-  const { placeholder, type = 'text', className, required, ...rest } = props;
+  const { placeholder, type, className, required, ...rest } = props;
 
   let classNames = '';
   if (!className) {
@@ -8,10 +8,17 @@ export default function Input(props) {
     classNames = `input ${className}`;
   }
 
+  let types = '';
+  if (!type) {
+    types = 'text';
+  } else {
+    types = `${type}`;
+  }
+
   return (
     <label className="label">
       <input
-        type={type}
+        type={types}
         placeholder={placeholder}
         className={classNames}
         required={required}
