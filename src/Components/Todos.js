@@ -1,11 +1,32 @@
 import { useEffect, useState } from 'react';
+import moment from 'moment';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
 
 export default function Todos(props) {
   const [entry, setEntry] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
-  const [date, setDate] = useState('');
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(startDate);
+  const formatedDate = moment(startDate).calendar(null, {
+    sameDay: '[Today]',
+    nextDay: '[Tomorrow]',
+    sameElse: 'ddd, MMM D',
+  });
+
+  function handleDateChange(event) {
+    setIsOpen(!isOpen);
+    if (startDate) {
+      setStartDate(event);
+    }
+  }
+
+  function handleDateClick(event) {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+  }
 
   console.log(props);
 
@@ -16,7 +37,14 @@ export default function Todos(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    props.onTodoAdd({ id: props.todos.length + 1, entry, isCompleted });
+    if (entry) {
+      props.onTodoAdd({
+        id: props.todos.length + 1,
+        entry,
+        formatedDate,
+        isCompleted,
+      });
+    }
     setEntry('');
   }
 
@@ -39,6 +67,10 @@ export default function Todos(props) {
             onEntryChange={handleEntryChange}
             onFormSubmit={handleFormSubmit}
             onPressEnter={handlePressEnter}
+            startDate={startDate}
+            isOpen={isOpen}
+            onDateChange={handleDateChange}
+            onDateClick={handleDateClick}
           />
         </div>
         <div className="todos-grid">

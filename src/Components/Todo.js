@@ -13,7 +13,10 @@ export default function Todo(props) {
             onClick={() => props.onTodoDelete(details.id)}
           />
         </div>
-        <p className="todo-text">{details.entry}</p>
+        <div>
+          <p className="todo-text">{details.entry}</p>
+          <p className="todo-date">{details.formatedDate}</p>
+        </div>
         <div className="todo-important">
           <Button className="btn-important">
             <svg

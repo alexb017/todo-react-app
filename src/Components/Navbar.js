@@ -20,7 +20,7 @@ export default function Navbar() {
               to="/completed"
               className={({ isActive }) => (isActive ? 'active' : '')}
             >
-              Completed
+              &#10004; Completed
             </NavLink>
           </li>
           <li className="nav-item">
@@ -28,7 +28,7 @@ export default function Navbar() {
               to="/important"
               className={({ isActive }) => (isActive ? 'active' : '')}
             >
-              Important
+              &#9733; Important
             </NavLink>
           </li>
           <li className="nav-item">

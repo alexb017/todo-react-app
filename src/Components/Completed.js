@@ -3,7 +3,7 @@ export default function Completed({ todos }) {
     <>
       <div className="completed-content">
         <h2>&#10004; Completed tasks</h2>
-        {todos.length === 0 && <p>You have not completed any task.</p>}
+        {!todos.isCompleted && <p>You have not completed any task.</p>}
       </div>
     </>
   );
