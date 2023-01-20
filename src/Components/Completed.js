@@ -1,9 +1,24 @@
-export default function Completed({ todos }) {
+import Todo from './Todo';
+
+export default function Completed(props) {
+  const { todos } = props;
+  console.log(todos);
   return (
     <>
       <div className="completed-content">
         <h2>&#10004; Completed tasks</h2>
-        {!todos.isCompleted && <p>You have not completed any task.</p>}
+        {todos.map((todo, index) => {
+          if (todo.isCompleted) {
+            return (
+              <Todo
+                key={index}
+                details={todo}
+                onTodoIsCompleted={props.onTodoIsCompleted}
+                onTodoDelete={props.onTodoDelete}
+              />
+            );
+          }
+        })}
       </div>
     </>
   );

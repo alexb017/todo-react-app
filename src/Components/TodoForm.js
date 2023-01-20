@@ -47,7 +47,6 @@ export default function TodoForm(props) {
             )}
             {props.isOpen && (
               <DatePicker
-                className="form-datepicker"
                 selected={props.startDate}
                 onChange={props.onDateChange}
                 inline

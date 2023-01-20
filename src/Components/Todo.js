@@ -9,15 +9,31 @@ export default function Todo(props) {
         <div className="todo-mark">
           <Input
             type="checkbox"
-            className="input-checkbox"
-            onClick={() => props.onTodoDelete(details.id)}
+            className={
+              !details.isCompleted
+                ? 'input-checkbox'
+                : 'input-checkbox-completed'
+            }
+            onClick={() => props.onTodoIsCompleted(details.id)}
           />
         </div>
         <div>
-          <p className="todo-text">{details.entry}</p>
+          <p
+            className={
+              !details.isCompleted ? 'todo-text' : 'todo-text-completed'
+            }
+          >
+            {details.entry}
+          </p>
           <p className="todo-date">{details.formatedDate}</p>
         </div>
-        <div className="todo-important">
+        <div className="todo-settings">
+          <Button
+            className="btn-delete"
+            onClick={() => props.onTodoDelete(details.id)}
+          >
+            Delete task
+          </Button>
           <Button className="btn-important">
             <svg
               xmlns="http://www.w3.org/2000/svg"

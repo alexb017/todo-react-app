@@ -167,7 +167,25 @@
   color: var(--primary);
 }
 
-.form-datepicker {
+.input-checkbox-completed {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+}
+.input-checkbox-completed::before {
+  content: '\2714';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.react-datepicker {
   position: absolute;
   top: 25px;
   right: 0px;
@@ -193,11 +211,21 @@
   margin-right: 16px;
   position: relative;
 }
-.todo-important {
+.todo-settings {
+  display: flex;
+  align-items: center;
   margin-left: auto;
+}
+.btn-delete {
+  color: var(--accent);
+  font-weight: 500;
+  margin-right: 10px;
 }
 .todo-text {
   font-weight: 500;
+}
+.todo-text-completed {
+  text-decoration: line-through;
 }
 .todo-date {
   font-size: 12px;

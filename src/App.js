@@ -28,6 +28,16 @@ function App() {
     setTodos([...todos, { ...newTodo }]);
   }
 
+  function handleTodoIsCompleted(id) {
+    const updateTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      }
+      return todo;
+    });
+    setTodos(updateTodos);
+  }
+
   function handleTodoDelete(id) {
     const updateTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updateTodos);
@@ -47,12 +57,19 @@ function App() {
                     todos={todos}
                     onTodoAdd={handleTodoAdd}
                     onTodoDelete={handleTodoDelete}
+                    onTodoIsCompleted={handleTodoIsCompleted}
                   />
                 }
               ></Route>
               <Route
                 path="/completed"
-                element={<Completed todos={todos} />}
+                element={
+                  <Completed
+                    todos={todos}
+                    onTodoIsCompleted={handleTodoIsCompleted}
+                    onTodoDelete={handleTodoDelete}
+                  />
+                }
               ></Route>
               <Route path="/important" element={<Important />}></Route>
             </Routes>
