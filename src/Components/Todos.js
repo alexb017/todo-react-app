@@ -5,8 +5,6 @@ import TodoForm from './TodoForm.js';
 
 export default function Todos(props) {
   const [entry, setEntry] = useState('');
-  const [isCompleted, setIsCompleted] = useState(false);
-
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,6 +16,10 @@ export default function Todos(props) {
     lastWeek: '[Last] dddd',
     sameElse: 'ddd, MMM D',
   });
+
+  useEffect(() => {
+    console.log(formatedDate);
+  }, [startDate]);
 
   const todayDate = new Date();
   const todayDateFormat = moment(todayDate).format('dddd, MMMM D');
@@ -32,10 +34,7 @@ export default function Todos(props) {
     setIsOpen(!isOpen);
   }
 
-  console.log(props);
-
   function handleEntryChange(event) {
-    console.log(event.target.value);
     setEntry(event.target.value);
   }
 
@@ -46,7 +45,7 @@ export default function Todos(props) {
         id: props.todos.length + 1,
         entry,
         formatedDate,
-        isCompleted,
+        isCompleted: false,
       });
     }
     setEntry('');

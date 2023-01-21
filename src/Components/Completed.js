@@ -1,8 +1,7 @@
-import Todo from './Todo';
+import Todo from './Todo.js';
 
 export default function Completed(props) {
   const { todos } = props;
-  console.log(todos);
   return (
     <>
       <div className="completed-content">

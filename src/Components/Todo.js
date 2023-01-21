@@ -1,5 +1,5 @@
-import Input from './Input';
-import Button from './Button';
+import Input from './Input.js';
+import Button from './Button.js';
 
 export default function Todo(props) {
   const { details } = props;
