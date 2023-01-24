@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import moment from 'moment';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
@@ -16,10 +16,6 @@ export default function Todos(props) {
     lastWeek: '[Last] dddd',
     sameElse: 'ddd, MMM D',
   });
-
-  useEffect(() => {
-    console.log(formatedDate);
-  }, [startDate]);
 
   const todayDate = new Date();
   const todayDateFormat = moment(todayDate).format('dddd, MMMM D');

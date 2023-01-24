@@ -64,3 +64,17 @@ button {
 input {
   all: unset;
 }
+
+svg {
+  fill: currentColor;
+}
+
+.dark {
+  --white: #707070;
+  --dark: #ffffff;
+  --secondary-light: #333333;
+  --accent: #ff7961;
+  --secondary-dark: #cfcfcf;
+  --secondary: #cfcfcf;
+  --primary: #80e27e;
+}

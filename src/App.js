@@ -1,10 +1,10 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nabvar from './Components/Navbar.js';
 import Todos from './Components/Todos.js';
 import Completed from './Components/Completed.js';
 import Important from './Components/Important.js';
 import './App.css';
-import { useState, useEffect } from 'react';
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -16,16 +16,36 @@ function App() {
     }
     return saveTodos;
   });
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('darkTheme') === 'true'
+  );
 
+  console.log(todos);
   useEffect(() => {
-    console.log(todos);
     if (todos) {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   }, [todos]);
 
+  useEffect(() => {
+    localStorage.setItem('darkTheme', theme);
+    document.body.classList = theme ? 'dark' : 'light';
+  }, [theme]);
+
+  function handleDarkThemeClick() {
+    setTheme(!theme);
+  }
+
   function handleTodoAdd(newTodo) {
-    setTodos([...todos, { ...newTodo }]);
+    // check if id exist
+    const existingId = todos.find((todo) => todo.id === newTodo.id);
+
+    if (existingId) {
+      // increase id
+      setTodos([...todos, { ...newTodo, id: newTodo.id + 1 }]);
+    } else {
+      setTodos([...todos, { ...newTodo }]);
+    }
   }
 
   function handleTodoIsCompleted(id) {
@@ -47,7 +67,7 @@ function App() {
     <>
       <BrowserRouter>
         <main className="main">
-          <Nabvar />
+          <Nabvar onDarkTheme={handleDarkThemeClick} />
           <div className="container">
             <Routes>
               <Route

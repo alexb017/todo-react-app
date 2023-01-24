@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <>
       <nav className="navbar">
@@ -32,7 +32,9 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li className="nav-item">
-            <Button className="btn-mediu">Dark mode</Button>
+            <Button className="btn-mediu" onClick={props.onDarkTheme}>
+              Dark mode
+            </Button>
           </li>
         </ul>
       </nav>

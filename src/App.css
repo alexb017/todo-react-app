@@ -19,10 +19,6 @@
   background-color: var(--primary-light);
 }
 
-.btn svg {
-  fill: currentColor;
-}
-
 .btn-small {
   color: var(--black);
 }
@@ -103,7 +99,7 @@
 
 /* Inputs */
 .todo-input {
-  margin: 20px 0px;
+  margin-top: 20px;
 }
 .form-search {
   display: flex;
@@ -122,6 +118,7 @@
   align-items: center;
   height: 56px;
   margin-right: 16px;
+  color: var(--secondary-dark);
 }
 .form-input {
   flex-grow: 1;
@@ -189,6 +186,37 @@
   position: absolute;
   top: 25px;
   right: 0px;
+  background-color: var(--white);
+  border-color: var(--secondary-dark);
+  color: var(--dark);
+}
+.react-datepicker__header {
+  background-color: var(--white);
+  border-color: var(--secondary-dark);
+}
+.react-datepicker__day--selected {
+  background-color: var(--accent);
+}
+.react-datepicker__day--selected:hover {
+  background-color: var(--accent-light);
+}
+.react-datepicker__day--selected.react-datepicker__day {
+  color: var(--white);
+}
+.react-datepicker__day {
+  color: var(--dark);
+}
+.react-datepicker__current-month {
+  color: var(--dark);
+}
+.react-datepicker__day-name {
+  color: var(--black);
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--accent);
+}
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: var(--accent-light);
 }
 
 /* Important */
