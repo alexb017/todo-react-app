@@ -78,7 +78,7 @@ function App() {
     <>
       <BrowserRouter>
         <main className="main">
-          <Nabvar onDarkTheme={handleDarkThemeClick} />
+          <Nabvar todos={todos} onDarkTheme={handleDarkThemeClick} />
           <div className="container">
             <Routes>
               <Route

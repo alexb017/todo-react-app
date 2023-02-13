@@ -20,7 +20,7 @@ export default function TodoForm(props) {
           </div>
           <div className="form-input">
             <Input
-              placeholder="Add task"
+              placeholder="Add a task"
               className="input-text"
               value={props.entry}
               onChange={props.onEntryChange}

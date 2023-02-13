@@ -59,7 +59,7 @@ export default function Todos(props) {
   return (
     <>
       <div className="todos-content">
-        <h2>My tasks</h2>
+        <h2>Tasks</h2>
         <p className="task-date">{todayDateFormat}</p>
         <div className="todo-input">
           <TodoForm
@@ -76,7 +76,7 @@ export default function Todos(props) {
         </div>
         <div className="todos-grid">
           {props.todos.map((todo, index) => {
-            if (!todo.isCompleted && !todo.isImportant) {
+            if (!todo.isCompleted) {
               return (
                 <Todo
                   key={index}
@@ -91,7 +91,7 @@ export default function Todos(props) {
           })}
         </div>
         <div className="completed-content">
-          <h2>Completed tasks</h2>
+          <h2>Completed</h2>
           {props.todos.map((todo, index) => {
             if (todo.isCompleted) {
               return (
@@ -100,6 +100,7 @@ export default function Todos(props) {
                   details={todo}
                   onTodoIsCompleted={props.onTodoIsCompleted}
                   onTodoDelete={props.onTodoDelete}
+                  onTodoIsImportant={props.onTodoIsImportant}
                 />
               );
             }

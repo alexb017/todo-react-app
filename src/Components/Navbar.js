@@ -2,6 +2,15 @@ import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
 export default function Navbar(props) {
+  const completedCount = props.todos.reduce(
+    (total, todo) => total + todo.isCompleted,
+    0
+  );
+
+  const importantCount = props.todos.reduce(
+    (total, todo) => total + todo.isImportant,
+    0
+  );
   return (
     <>
       <nav className="navbar">
@@ -13,7 +22,7 @@ export default function Navbar(props) {
                 to="/"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
-                Tasks
+                Tasks {completedCount === 0 ? '' : `(${completedCount})`}
               </NavLink>
             </li>
             {/* <li className="nav-item">
@@ -29,12 +38,12 @@ export default function Navbar(props) {
                 to="/important"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
-                Important
+                Important {importantCount === 0 ? '' : `(${importantCount})`}
               </NavLink>
             </li>
             <li className="nav-item">
               <Button className="btn-mediu" onClick={props.onDarkTheme}>
-                Dark mode
+                Dark Mode
               </Button>
             </li>
           </ul>

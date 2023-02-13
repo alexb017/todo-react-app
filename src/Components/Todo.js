@@ -22,7 +22,12 @@ export default function Todo(props) {
 
   function todoIsImportant() {
     props.onTodoIsImportant(details.id);
-    toast.success('Task added as important!');
+
+    if (!details.isImportant) {
+      toast.success('Task selected as important!');
+    } else {
+      toast.success('Task');
+    }
   }
 
   return (
