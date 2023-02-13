@@ -5,7 +5,7 @@ export default function Completed(props) {
   return (
     <>
       <div className="completed-content">
-        <h2>&#10004; Completed tasks</h2>
+        <h2>Completed tasks</h2>
         {todos.map((todo, index) => {
           if (todo.isCompleted) {
             return (

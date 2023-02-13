@@ -5,6 +5,7 @@ import Todos from './Components/Todos.js';
 import Completed from './Components/Completed.js';
 import Important from './Components/Important.js';
 import './App.css';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -58,6 +59,16 @@ function App() {
     setTodos(updateTodos);
   }
 
+  function handleTodoIsImportant(id) {
+    const updateTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isImportant: !todo.isImportant };
+      }
+      return todo;
+    });
+    setTodos(updateTodos);
+  }
+
   function handleTodoDelete(id) {
     const updateTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updateTodos);
@@ -78,6 +89,7 @@ function App() {
                     onTodoAdd={handleTodoAdd}
                     onTodoDelete={handleTodoDelete}
                     onTodoIsCompleted={handleTodoIsCompleted}
+                    onTodoIsImportant={handleTodoIsImportant}
                   />
                 }
               ></Route>
@@ -91,10 +103,19 @@ function App() {
                   />
                 }
               ></Route>
-              <Route path="/important" element={<Important />}></Route>
+              <Route
+                path="/important"
+                element={
+                  <Important
+                    todos={todos}
+                    onTodoIsImportant={handleTodoIsImportant}
+                  />
+                }
+              ></Route>
             </Routes>
           </div>
         </main>
+        <Toaster />
       </BrowserRouter>
     </>
   );

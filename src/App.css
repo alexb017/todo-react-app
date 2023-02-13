@@ -30,6 +30,10 @@
   color: var(--white);
   stroke: var(--secondary);
 }
+.btn-is-important {
+  color: var(--primary);
+  stroke: var(--primary);
+}
 .btn-important:hover {
   color: var(--primary);
   stroke: var(--primary);
@@ -40,15 +44,18 @@
   background-color: var(--white);
   box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
     0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+}
+.navbar-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px 10px;
+  max-width: 768px;
+  margin: 0 auto;
 }
 .navbar ul {
   list-style-type: none;
   overflow: hidden;
-  padding-right: 20px;
   text-align: center;
 }
 
@@ -60,9 +67,11 @@
   text-decoration: none;
   color: var(--primary);
   display: inline-block;
-  padding: 13px 20px;
   font-weight: 400;
   transition: color 0.1s ease-in;
+}
+.nav-item a:nth-child(-n + 2) {
+  margin-right: 20px;
 }
 
 .nav-item:hover a {
@@ -75,7 +84,7 @@
 
 /* Container */
 .container {
-  max-width: 900px;
+  max-width: 768px;
   margin: 0 auto;
 }
 
@@ -92,9 +101,8 @@
 .completed-content {
   padding: 20px 10px;
 }
-.completed-content p {
-  font-weight: 500;
-  color: var(--secondary-dark);
+.completed-content h2 {
+  margin-bottom: 20px;
 }
 
 /* Inputs */
@@ -222,6 +230,9 @@
 /* Important */
 .important-content {
   padding: 20px 10px;
+}
+.important-content h2 {
+  margin-bottom: 20px;
 }
 
 /* Todo */

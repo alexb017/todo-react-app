@@ -1,8 +1,30 @@
 import Input from './Input.js';
 import Button from './Button.js';
+import toast from 'react-hot-toast';
 
 export default function Todo(props) {
   const { details } = props;
+
+  function todoIsCompleted() {
+    props.onTodoIsCompleted(details.id);
+
+    if (!details.isCompleted) {
+      toast.success('Task completed!');
+    } else {
+      toast.success('Task uncompleted!');
+    }
+  }
+
+  function todoDelete() {
+    props.onTodoDelete(details.id);
+    toast.success('Task deleted!');
+  }
+
+  function todoIsImportant() {
+    props.onTodoIsImportant(details.id);
+    toast.success('Task added as important!');
+  }
+
   return (
     <>
       <div className="todo-content">
@@ -14,7 +36,7 @@ export default function Todo(props) {
                 ? 'input-checkbox'
                 : 'input-checkbox-completed'
             }
-            onClick={() => props.onTodoIsCompleted(details.id)}
+            onClick={todoIsCompleted}
           />
         </div>
         <div>
@@ -28,13 +50,15 @@ export default function Todo(props) {
           <p className="todo-date">{details.formatedDate}</p>
         </div>
         <div className="todo-settings">
-          <Button
-            className="btn-delete"
-            onClick={() => props.onTodoDelete(details.id)}
-          >
+          <Button className="btn-delete" onClick={todoDelete}>
             Delete task
           </Button>
-          <Button className="btn-important">
+          <Button
+            className={
+              !details.isImportant ? 'btn-important' : 'btn-is-important'
+            }
+            onClick={todoIsImportant}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

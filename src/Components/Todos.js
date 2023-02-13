@@ -42,6 +42,7 @@ export default function Todos(props) {
         entry,
         formatedDate,
         isCompleted: false,
+        isImportant: false,
       });
     }
     setEntry('');
@@ -75,7 +76,7 @@ export default function Todos(props) {
         </div>
         <div className="todos-grid">
           {props.todos.map((todo, index) => {
-            if (!todo.isCompleted) {
+            if (!todo.isCompleted && !todo.isImportant) {
               return (
                 <Todo
                   key={index}
@@ -83,6 +84,22 @@ export default function Todos(props) {
                   onTodoIsCompleted={props.onTodoIsCompleted}
                   onTodoDelete={props.onTodoDelete}
                   startDate={startDate}
+                  onTodoIsImportant={props.onTodoIsImportant}
+                />
+              );
+            }
+          })}
+        </div>
+        <div className="completed-content">
+          <h2>Completed tasks</h2>
+          {props.todos.map((todo, index) => {
+            if (todo.isCompleted) {
+              return (
+                <Todo
+                  key={index}
+                  details={todo}
+                  onTodoIsCompleted={props.onTodoIsCompleted}
+                  onTodoDelete={props.onTodoDelete}
                 />
               );
             }
