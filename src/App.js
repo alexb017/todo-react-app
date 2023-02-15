@@ -78,7 +78,11 @@ function App() {
     <>
       <BrowserRouter>
         <main className="main">
-          <Nabvar todos={todos} onDarkTheme={handleDarkThemeClick} />
+          <Nabvar
+            todos={todos}
+            theme={theme}
+            onDarkTheme={handleDarkThemeClick}
+          />
           <div className="container">
             <Routes>
               <Route
@@ -109,6 +113,8 @@ function App() {
                   <Important
                     todos={todos}
                     onTodoIsImportant={handleTodoIsImportant}
+                    onTodoIsCompleted={handleTodoIsCompleted}
+                    onTodoDelete={handleTodoDelete}
                   />
                 }
               ></Route>

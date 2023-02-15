@@ -8,7 +8,7 @@ export default function Todos(props) {
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
-  const formatedDate = moment(startDate).calendar(null, {
+  const formattedDate = moment(startDate).calendar(null, {
     sameDay: '[Today]',
     nextDay: '[Tomorrow]',
     nextWeek: 'dddd',
@@ -36,15 +36,17 @@ export default function Todos(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+
     if (entry) {
       props.onTodoAdd({
         id: props.todos.length + 1,
         entry,
-        formatedDate,
+        formattedDate,
         isCompleted: false,
         isImportant: false,
       });
     }
+
     setEntry('');
     setStartDate(new Date());
   }
@@ -59,7 +61,7 @@ export default function Todos(props) {
   return (
     <>
       <div className="todos-content">
-        <h2>Tasks</h2>
+        <h2>📝 Tasks</h2>
         <p className="task-date">{todayDateFormat}</p>
         <div className="todo-input">
           <TodoForm
@@ -75,8 +77,9 @@ export default function Todos(props) {
           />
         </div>
         <div className="todos-grid">
-          {props.todos.map((todo, index) => {
-            if (!todo.isCompleted) {
+          {props.todos
+            .filter((todo) => !todo.isCompleted)
+            .map((todo, index) => {
               return (
                 <Todo
                   key={index}
@@ -87,13 +90,13 @@ export default function Todos(props) {
                   onTodoIsImportant={props.onTodoIsImportant}
                 />
               );
-            }
-          })}
+            })}
         </div>
         <div className="completed-content">
-          <h2>Completed</h2>
-          {props.todos.map((todo, index) => {
-            if (todo.isCompleted) {
+          <h2>🎉 Completed</h2>
+          {props.todos
+            .filter((todo) => todo.isCompleted)
+            .map((todo, index) => {
               return (
                 <Todo
                   key={index}
@@ -103,8 +106,7 @@ export default function Todos(props) {
                   onTodoIsImportant={props.onTodoIsImportant}
                 />
               );
-            }
-          })}
+            })}
         </div>
       </div>
     </>

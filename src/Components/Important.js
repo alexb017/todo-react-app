@@ -5,9 +5,10 @@ export default function Important(props) {
   return (
     <>
       <div className="important-content">
-        <h2>Important</h2>
-        {todos.map((todo, index) => {
-          if (todo.isImportant) {
+        <h2>⭐️ Important</h2>
+        {todos
+          .filter((todo) => todo.isImportant)
+          .map((todo, index) => {
             return (
               <Todo
                 key={index}
@@ -17,8 +18,7 @@ export default function Important(props) {
                 onTodoIsImportant={props.onTodoIsImportant}
               />
             );
-          }
-        })}
+          })}
       </div>
     </>
   );
