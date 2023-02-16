@@ -29,8 +29,9 @@ export default function TodoForm(props) {
             />
           </div>
           <div className="form-date">
+            <span>{props.date}</span>
             {props.entry.length > 0 && (
-              <Button className="btn-small" onClick={props.onDateClick}>
+              <Button className="btn-date" onClick={props.onDateClick}>
                 <svg
                   width="24"
                   height="24"

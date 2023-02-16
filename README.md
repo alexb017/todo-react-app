@@ -2,7 +2,7 @@
 
 I've tried to make a copy of Microsoft To Do app in React.
 
-![My Image](./public/img1.png)
+![My Image](./public/img.jpg)
 
 #### Features
 

@@ -19,11 +19,12 @@
   background-color: var(--secondary-1);
 }
 
-.btn-small {
-  color: var(--black);
-}
-.btn-small:hover {
+.btn-date {
   color: var(--primary);
+  margin-left: 4px;
+}
+.form-date span {
+  font-weight: 500;
 }
 
 .btn-important {

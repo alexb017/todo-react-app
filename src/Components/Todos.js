@@ -7,22 +7,25 @@ export default function Todos(props) {
   const [entry, setEntry] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
-
-  const formattedDate = moment(startDate).calendar(null, {
-    sameDay: '[Today]',
-    nextDay: '[Tomorrow]',
-    nextWeek: 'dddd',
-    lastDay: '[Yesterday]',
-    lastWeek: '[Last] dddd',
-    sameElse: 'ddd, MMM D',
-  });
+  const [date, setDate] = useState('');
 
   const todayDate = new Date();
   const todayDateFormat = moment(todayDate).format('dddd, MMMM D');
 
   function handleDateChange(event) {
     setIsOpen(!isOpen);
+
+    const formattedDate = moment(event).calendar(null, {
+      sameDay: '[Today]',
+      nextDay: '[Tomorrow]',
+      nextWeek: 'dddd',
+      lastDay: '[Yesterday]',
+      lastWeek: '[Last] dddd',
+      sameElse: 'ddd, MMM D',
+    });
+
     setStartDate(event);
+    setDate(formattedDate);
   }
 
   function handleDateClick(event) {
@@ -41,13 +44,14 @@ export default function Todos(props) {
       props.onTodoAdd({
         id: props.todos.length + 1,
         entry,
-        formattedDate,
+        date,
         isCompleted: false,
         isImportant: false,
       });
     }
 
     setEntry('');
+    setDate('');
     setStartDate(new Date());
   }
 
@@ -72,6 +76,7 @@ export default function Todos(props) {
             onPressEnter={handlePressEnter}
             startDate={startDate}
             isOpen={isOpen}
+            date={date}
             onDateChange={handleDateChange}
             onDateClick={handleDateClick}
           />
