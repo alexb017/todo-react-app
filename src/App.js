@@ -6,6 +6,7 @@ import Completed from './Components/Completed.js';
 import Important from './Components/Important.js';
 import './App.css';
 import { Toaster } from 'react-hot-toast';
+import Footer from './Components/Footer.js';
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -21,7 +22,6 @@ function App() {
     () => localStorage.getItem('darkTheme') === 'true'
   );
 
-  console.log(todos);
   useEffect(() => {
     if (todos) {
       localStorage.setItem('todos', JSON.stringify(todos));
@@ -120,6 +120,7 @@ function App() {
               ></Route>
             </Routes>
           </div>
+          <Footer />
         </main>
         <Toaster />
       </BrowserRouter>
