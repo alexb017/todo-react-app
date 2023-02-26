@@ -3,8 +3,8 @@ import Button from './Button';
 import { toast } from 'react-hot-toast';
 
 export default function Navbar(props) {
-  const completedCount = props.todos.reduce(
-    (total, todo) => total + todo.isCompleted,
+  const totalTodos = props.todos.reduce(
+    (total, todo) => total + !todo.isCompleted,
     0
   );
 
@@ -68,11 +68,11 @@ export default function Navbar(props) {
                   <path d="M10.55 2.532a2.25 2.25 0 0 1 2.9 0l6.75 5.692c.507.428.8 1.057.8 1.72v9.803a1.75 1.75 0 0 1-1.75 1.75h-3.5a1.75 1.75 0 0 1-1.75-1.75v-5.5a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25v5.5a1.75 1.75 0 0 1-1.75 1.75h-3.5A1.75 1.75 0 0 1 3 19.747V9.944c0-.663.293-1.292.8-1.72l6.75-5.692Zm1.933 1.147a.75.75 0 0 0-.966 0L4.767 9.37a.75.75 0 0 0-.267.573v9.803c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-5.5c0-.967.784-1.75 1.75-1.75h3.5c.966 0 1.75.783 1.75 1.75v5.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25V9.944a.75.75 0 0 0-.267-.573l-6.75-5.692Z" />
                 </svg>
                 Tasks{' '}
-                <span className="span-count">
-                  {props.todos.length > 0
-                    ? `${props.todos.length - completedCount}`
-                    : ''}
-                </span>
+                {totalTodos > 0 ? (
+                  <span className="span-count">{totalTodos}</span>
+                ) : (
+                  ''
+                )}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -90,9 +90,11 @@ export default function Navbar(props) {
                   <path d="M10.788 3.103c.495-1.004 1.926-1.004 2.421 0l2.358 4.777 5.273.766c1.107.161 1.549 1.522.748 2.303l-3.816 3.72.901 5.25c.19 1.103-.968 1.944-1.959 1.424l-4.716-2.48-4.715 2.48c-.99.52-2.148-.32-1.96-1.424l.901-5.25-3.815-3.72c-.801-.78-.359-2.142.748-2.303L8.43 7.88l2.358-4.777Zm1.21.936L9.74 8.615a1.35 1.35 0 0 1-1.016.738l-5.05.734 3.654 3.562c.318.31.463.757.388 1.195l-.862 5.03 4.516-2.375a1.35 1.35 0 0 1 1.257 0l4.516 2.374-.862-5.029a1.35 1.35 0 0 1 .388-1.195l3.654-3.562-5.05-.734a1.35 1.35 0 0 1-1.016-.738l-2.259-4.576Z" />
                 </svg>
                 Important{' '}
-                <span className="span-count">
-                  {importantTask.length > 0 ? `${importantTask.length}` : ''}
-                </span>
+                {importantTask.length > 0 ? (
+                  <span className="span-count">{importantTask.length}</span>
+                ) : (
+                  ''
+                )}
               </NavLink>
             </li>
             <li className="nav-item">
