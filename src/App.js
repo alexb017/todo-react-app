@@ -50,23 +50,31 @@ function App() {
   }
 
   function handleTodoIsCompleted(id) {
-    const updateTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, isCompleted: !todo.isCompleted };
-      }
-      return todo;
-    });
-    setTodos(updateTodos);
+    const task = todos.find((todo) => todo.id === id);
+
+    if (task) {
+      const updateTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isCompleted: !todo.isCompleted };
+        }
+        return todo;
+      });
+      setTodos(updateTodos);
+    }
   }
 
   function handleTodoIsImportant(id) {
-    const updateTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, isImportant: !todo.isImportant };
-      }
-      return todo;
-    });
-    setTodos(updateTodos);
+    const task = todos.find((todo) => todo.id === id);
+
+    if (task) {
+      const updateTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isImportant: !todo.isImportant };
+        }
+        return todo;
+      });
+      setTodos(updateTodos);
+    }
   }
 
   function handleTodoDelete(id) {

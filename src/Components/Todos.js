@@ -62,10 +62,15 @@ export default function Todos(props) {
     }
   }
 
+  const completedCount = props.todos.reduce(
+    (total, todo) => total + todo.isCompleted,
+    0
+  );
+
   return (
     <>
       <div className="todos-content">
-        <h2>
+        <h2 className="h2-count">
           <svg
             className="svg"
             width="24"
@@ -75,7 +80,12 @@ export default function Todos(props) {
           >
             <path d="M10.55 2.532a2.25 2.25 0 0 1 2.9 0l6.75 5.692c.507.428.8 1.057.8 1.72v9.803a1.75 1.75 0 0 1-1.75 1.75h-3.5a1.75 1.75 0 0 1-1.75-1.75v-5.5a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25v5.5a1.75 1.75 0 0 1-1.75 1.75h-3.5A1.75 1.75 0 0 1 3 19.747V9.944c0-.663.293-1.292.8-1.72l6.75-5.692Zm1.933 1.147a.75.75 0 0 0-.966 0L4.767 9.37a.75.75 0 0 0-.267.573v9.803c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-5.5c0-.967.784-1.75 1.75-1.75h3.5c.966 0 1.75.783 1.75 1.75v5.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25V9.944a.75.75 0 0 0-.267-.573l-6.75-5.692Z" />
           </svg>
-          Tasks
+          Tasks{' '}
+          <span className="span-count">
+            {props.todos.length > 0
+              ? `${props.todos.length - completedCount}`
+              : ''}
+          </span>
         </h2>
         <p className="task-date">{todayDateFormat}</p>
         <div className="todo-input">
@@ -109,7 +119,7 @@ export default function Todos(props) {
             })}
         </div>
         <div className="completed-content">
-          <h2>
+          <h2 className="h2-count">
             <svg
               className="svg"
               width="24"
@@ -119,7 +129,10 @@ export default function Todos(props) {
             >
               <path d="M16.401 3.378a.75.75 0 0 0-1.023-.28c-2.269 1.297-3.391 2.954-3.921 4.71-.468 1.553-.463 3.166-.458 4.543l.001.4v5.688l-3.72-3.72a.75.75 0 1 0-1.06 1.061l5 5a.75.75 0 0 0 1.06 0l5-5a.75.75 0 0 0-1.06-1.06l-3.72 3.72v-6.07c-.004-1.411-.007-2.802.393-4.128.42-1.394 1.298-2.737 3.23-3.84a.75.75 0 0 0 .278-1.024Z" />
             </svg>
-            Completed
+            Completed{' '}
+            <span className="span-count">
+              {completedCount > 0 ? `${completedCount}` : ''}
+            </span>
           </h2>
           {props.todos
             .filter((todo) => todo.isCompleted)

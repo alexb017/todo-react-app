@@ -23,6 +23,8 @@ export default function Todo(props) {
   function todoIsImportant() {
     props.onTodoIsImportant(details.id);
 
+    if (details.isCompleted) return;
+
     if (!details.isImportant) {
       toast.success('Task selected as important!');
     } else {
