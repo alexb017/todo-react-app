@@ -2,40 +2,54 @@
 .btn {
   display: flex;
   align-items: center;
+  column-gap: 10px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.1s ease-in;
+  transition: 200ms ease-in;
 }
+
 .btn-dark-mode {
-  font-weight: 700;
+  font-weight: 500;
+  padding: 4px 16px;
+  border-radius: 100px;
+  background-color: var(--color-neutral-100);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
-.btn-dark-mode svg {
-  position: relative;
-  top: -2px;
-  margin-right: 6px;
-}
+
 .btn-dark-mode:hover {
-  color: var(--primary);
+  color: var(--color-neutral-500);
 }
 
 .btn-date {
-  color: var(--primary);
-  margin-left: 4px;
+  color: var(--color-neutral-500);
+  margin-left: 10px;
 }
+
 .form-date span {
+  font-size: 14px;
   font-weight: 500;
 }
 
 .btn-important {
-  color: var(--white);
-  stroke: var(--secondary);
+  color: var(--color-white);
+  stroke: var(--color-neutral-500);
 }
+
 .btn-is-important {
-  color: var(--primary);
-  stroke: var(--primary);
+  color: var(--color-neutral-500);
+  stroke: var(--color-neutral-500);
 }
+
 .btn-important:hover {
-  color: var(--primary);
-  stroke: var(--primary);
+  color: var(--color-neutral-500);
+  stroke: var(--color-neutral-500);
+}
+
+.h1,
+.h2-count {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
 }
 
 .span-count {
@@ -43,65 +57,75 @@
   align-items: center;
   width: 20px;
   font-size: 14px;
-  color: var(--dark);
-  background-color: var(--secondary-2);
+  color: var(--color-neutral-500);
+  background-color: var(--color-neutral-300);
   border-radius: 50%;
   height: 20px;
   justify-content: center;
-  margin-left: 6px;
 }
 
-.h2-count {
+.completed-count-btn {
   display: flex;
   align-items: center;
+  column-gap: 5px;
+  margin: 20px 0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: var(--color-white);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: 200ms ease-in;
 }
 
-.nav-item .span-count {
-  color: var(--dark);
+.completed-count-btn:hover {
+  background-color: var(--color-neutral-100);
 }
 
 /* Navbar */
 .navbar {
-  background-color: var(--primary-1);
+  background-color: var(--color-white);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
+
 .navbar-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px;
-  max-width: 800px;
+  padding: 10px 20px;
   margin: 0 auto;
 }
+
 .navbar ul {
   list-style-type: none;
   display: flex;
   align-items: center;
+  column-gap: 16px;
 }
 
 .nav-item {
   display: flex;
 }
+
 .nav-item a {
   text-decoration: none;
-  color: var(--dark);
+  color: var(--color-neutral-950);
   display: flex;
-  font-weight: 700;
-  transition: color 0.1s ease-in;
-}
-.nav-item:nth-child(-n + 2) {
-  margin-right: 20px;
-}
-.nav-item a svg {
-  position: relative;
-  top: -2px;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 200ms ease-in;
+  padding: 4px 16px;
+  border-radius: 100px;
+  background-color: var(--color-white);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .nav-item:hover a {
-  color: var(--primary);
+  color: var(--color-neutral-500);
 }
 
 .nav-item a.active {
-  color: var(--primary);
+  color: var(--color-neutral-500);
 }
 
 /* Container */
@@ -112,65 +136,71 @@
 
 /* Todos */
 .todos-content {
-  padding: 20px 10px;
+  padding: 40px 10px;
 }
+
 .task-date {
   font-weight: 500;
-  color: var(--secondary);
+  color: var(--color-neutral-500);
 }
 
 /* Completed */
-.completed-content h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
 /* Inputs */
 .todo-input {
   margin-top: 20px;
   margin-bottom: 4px;
 }
+
 .form-search {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
   height: 56px;
-  background-color: var(--secondary-1);
+  background-color: var(--color-white);
   border-radius: 8px;
   padding: 0px 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
 .form-icon {
   display: flex;
   align-items: center;
   height: 56px;
   margin-right: 16px;
-  color: var(--primary);
+  color: var(--color-indigo-500);
 }
+
 .form-input {
   flex-grow: 1;
 }
+
 .label {
   display: flex;
 }
+
 .input-text {
   flex: 100%;
   height: 56px;
   cursor: text;
   font-weight: 500;
-  color: var(--dark);
+  color: var(--color-indigo-500);
 }
+
 .input-text::placeholder {
-  color: var(--primary);
+  color: var(--color-indigo-500);
   font-weight: 500;
 }
+
 .form-date {
   display: flex;
   align-items: center;
   position: relative;
 }
+
 .form-date .btn-small {
-  color: var(--primary);
+  color: var(--color-indigo-500);
 }
 
 .input-checkbox {
@@ -178,12 +208,15 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
-  border: 1px solid var(--secondary);
+  border: 2px solid var(--color-neutral-500);
+  background-color: transparent;
   border-radius: 50%;
 }
+
 .input-checkbox:hover {
-  border-color: var(--primary);
+  border-color: var(--color-indigo-500);
 }
+
 .input-checkbox:hover::before {
   content: '\2714';
   display: flex;
@@ -191,7 +224,7 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: var(--primary);
+  color: var(--color-indigo-500);
 }
 
 .input-checkbox-completed {
@@ -199,9 +232,11 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--color-indigo-500);
+  background-color: var(--color-indigo-500);
   border-radius: 50%;
 }
+
 .input-checkbox-completed::before {
   content: '\2714';
   display: flex;
@@ -209,51 +244,67 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: var(--primary);
+  color: var(--color-white);
 }
 
 .react-datepicker {
   position: absolute;
   top: 25px;
   right: 0px;
-  background-color: var(--white);
-  border-color: var(--secondary);
-  color: var(--dark);
+  background-color: var(--color-white);
+  border-color: var(--color-neutral-500);
+  color: var(--color-neutral-950);
 }
+
 .react-datepicker__header {
-  background-color: var(--white);
-  border-color: var(--secondary);
+  background-color: var(--color-white);
+  border-color: var(--color-neutral-500);
 }
+
 .react-datepicker__day--selected {
-  background-color: var(--primary);
+  background-color: var(--color-indigo-500);
 }
+
 .react-datepicker__day--selected:hover {
-  background-color: var(--primary);
+  background-color: var(--color-indigo-500);
 }
+
 .react-datepicker__day--selected.react-datepicker__day {
-  color: var(--white);
+  color: var(--color-white);
 }
+
 .react-datepicker__day {
-  color: var(--dark);
+  color: var(--color-neutral-950);
 }
+
+.react-datepicker__day:hover {
+  color: var(--color-neutral-900);
+}
+
 .react-datepicker__current-month {
-  color: var(--dark);
+  color: var(--color-neutral-950);
 }
+
 .react-datepicker__day-name {
-  color: var(--black);
+  color: var(--color-neutral-950);
 }
+
 .react-datepicker__day--keyboard-selected {
-  background-color: var(--primary);
+  background-color: var(--color-indigo-500);
 }
+
 .react-datepicker__day--keyboard-selected:hover {
-  background-color: var(--primary);
+  background-color: var(--color-indigo-500);
 }
 
 /* Important */
-.important-content {
+.important-content,
+.planned-content {
   padding: 20px 10px;
 }
-.important-content h2 {
+
+.important-content h2,
+.planned-content h2 {
   margin-bottom: 20px;
 }
 
@@ -264,42 +315,53 @@
   align-items: center;
   height: 56px;
   padding: 0px 16px;
-  background-color: var(--secondary-1);
+  background-color: var(--color-white);
   border-radius: 8px;
   margin-top: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: 200ms ease-in;
 }
+
 .todo-content:hover {
-  background-color: var(--secondary-2);
+  background-color: var(--color-neutral-100);
 }
+
 .todo-mark {
   margin-right: 16px;
   position: relative;
 }
+
 .todo-settings {
   display: flex;
   align-items: center;
   margin-left: auto;
 }
+
 .btn-delete {
-  color: var(--accent);
+  color: var(--color-red-500);
   font-weight: 500;
   margin-right: 10px;
   display: none;
 }
+
 .todo-content:hover .btn-delete {
   display: block;
 }
+
 .todo-text {
   font-weight: 500;
 }
+
 .todo-text-completed {
   text-decoration: line-through;
 }
+
 .todo-date {
   display: flex;
   font-size: 12px;
-  color: var(--secondary);
+  color: var(--color-neutral-500);
 }
+
 .todo-date svg {
   margin-right: 3px;
 }
@@ -307,4 +369,9 @@
 /* Footer */
 .footer {
   padding: 120px 10px;
+}
+
+.footer p {
+  font-size: 14px;
+  color: var(--color-neutral-500);
 }

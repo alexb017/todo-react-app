@@ -2,12 +2,14 @@ import { useState } from 'react';
 import moment from 'moment';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
+import Button from './Button.js';
 
 export default function Todos(props) {
   const [entry, setEntry] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
   const [date, setDate] = useState('');
+  const [showCompleted, setShowCompleted] = useState(true);
 
   const todayDate = new Date();
   const todayDateFormat = moment(todayDate).format('dddd, MMMM D');
@@ -78,8 +80,8 @@ export default function Todos(props) {
         <h2 className="h2-count">
           <svg
             className="svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -124,24 +126,12 @@ export default function Todos(props) {
             })}
         </div>
         <div className="completed-content">
-          <h2 className="h2-count">
-            <svg
-              className="svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M16.401 3.378a.75.75 0 0 0-1.023-.28c-2.269 1.297-3.391 2.954-3.921 4.71-.468 1.553-.463 3.166-.458 4.543l.001.4v5.688l-3.72-3.72a.75.75 0 1 0-1.06 1.061l5 5a.75.75 0 0 0 1.06 0l5-5a.75.75 0 0 0-1.06-1.06l-3.72 3.72v-6.07c-.004-1.411-.007-2.802.393-4.128.42-1.394 1.298-2.737 3.23-3.84a.75.75 0 0 0 .278-1.024Z" />
-            </svg>
-            Completed{' '}
-            {completedCount > 0 ? (
-              <span className="span-count">{completedCount}</span>
-            ) : (
-              ''
-            )}
-          </h2>
-          {props.todos
+          {completedCount > 0 ? (
+            <Button className="completed-count-btn" onClick={() => setShowCompleted(!showCompleted)}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="m213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z" /></svg>
+              Completed <span className="span-count">{completedCount}</span>
+            </Button>) : ''}
+          {showCompleted && props.todos
             .filter((todo) => todo.isCompleted)
             .map((todo, index) => {
               return (

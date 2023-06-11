@@ -7,6 +7,7 @@ import Important from './Components/Important.js';
 import './App.css';
 import { Toaster } from 'react-hot-toast';
 import Footer from './Components/Footer.js';
+import Planned from './Components/Planned.js';
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -119,6 +120,17 @@ function App() {
                 path="/important"
                 element={
                   <Important
+                    todos={todos}
+                    onTodoIsImportant={handleTodoIsImportant}
+                    onTodoIsCompleted={handleTodoIsCompleted}
+                    onTodoDelete={handleTodoDelete}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/planned"
+                element={
+                  <Planned
                     todos={todos}
                     onTodoIsImportant={handleTodoIsImportant}
                     onTodoIsCompleted={handleTodoIsCompleted}
