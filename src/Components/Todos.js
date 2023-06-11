@@ -77,11 +77,11 @@ export default function Todos(props) {
   return (
     <>
       <div className="todos-content">
-        <h2 className="h2-count">
+        <h2 className="h2-count h2-task">
           <svg
             className="svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -97,7 +97,6 @@ export default function Todos(props) {
         <p className="task-date">{todayDateFormat}</p>
         <div className="todo-input">
           <TodoForm
-            todos={props.todos}
             entry={entry}
             onEntryChange={handleEntryChange}
             onFormSubmit={handleFormSubmit}

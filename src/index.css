@@ -16,6 +16,8 @@
 
   --color-red-300: #fca5a5;
   --color-red-500: #ef4444;
+
+  --color-emerald-500: #10b981;
 }
 
 .dark {
@@ -81,4 +83,16 @@ input {
 
 svg {
   fill: currentColor;
+}
+
+.h2-task {
+  color: var(--color-indigo-500);
+}
+
+.h2-important {
+  color: var(--color-red-300);
+}
+
+.h2-planned {
+  color: var(--color-emerald-500);
 }
