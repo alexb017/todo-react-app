@@ -2,7 +2,7 @@
 
 I've made a simple to do app in react.
 
-![My Remote Image](https://res.cloudinary.com/drbu50m1e/image/upload/v1677423431/projects/todo_wixlpw.jpg)
+![Alt text](/public/todos.png)
 
 #### Features
 
@@ -12,3 +12,4 @@ I've made a simple to do app in react.
 - Show completed/important count
 - Dark mode
 - Store data with localStorage
+- Show planned task
